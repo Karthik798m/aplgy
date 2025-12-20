@@ -1,58 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Sorry Page</title>
+<title>Sorry HRIDHIKA</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
   body{
+    margin:0;
+    background:#fff6f6;
+    overflow:hidden;
+    touch-action:none;
     font-family: Arial, sans-serif;
-    text-align: center;
-    background: #fff6f6;
-    padding-top: 100px;
   }
-  h1{
-    color:#ff2d55;
-    padding: 0 10px;
+  .text{
+    position:absolute;
+    font-weight:bold;
+    user-select:none;
   }
-  button{
-    padding:12px 30px;
-    font-size:18px;
-    border:none;
-    border-radius:10px;
-    margin:12px;
-    cursor:pointer;
-  }
-  #yes{ background:#34c759; color:white; position:absolute; }
-  #no{ background:#ff3b30; color:white; }
 </style>
 </head>
 
 <body>
 
-<h1>SORRY HRIDHIKA.. nnod minduo plz?</h1>
-
-<button id="no">YES</button>
-<button id="yes">NO</button>
-
 <script>
-const yes = document.getElementById("yes");
-const no = document.getElementById("no");
+function spawnSorry(){
+  const t = document.createElement("div");
+  t.className = "text";
+  t.innerText = "SORRY HRIDHIKA";
 
-function moveYes(){
-  let x = Math.random() * (window.innerWidth - 120);
-  let y = Math.random() * (window.innerHeight - 180);
-  yes.style.left = x + "px";
-  yes.style.top = y + "px";
+  let size = Math.floor(Math.random()*45) + 14;
+  t.style.fontSize = size + "px";
+
+  let x = Math.random() * (window.innerWidth - 150);
+  let y = Math.random() * (window.innerHeight - 80);
+
+  t.style.left = x + "px";
+  t.style.top = y + "px";
+
+  t.style.color = `hsl(${Math.random()*360},85%,50%)`;
+
+  document.body.appendChild(t);
 }
 
-// Move when user tries to tap
-yes.addEventListener("touchstart", moveYes);
-yes.addEventListener("click", moveYes);
-
-no.onclick = () => alert("Thank you! ❤️");
-
-// initial position
-moveYes();
+setInterval(spawnSorry, 250);
 </script>
 
 </body>
