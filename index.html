@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sorry Page</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body{
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: #fff6f6;
+    padding-top: 100px;
+  }
+  h1{
+    color:#ff2d55;
+    padding: 0 10px;
+  }
+  button{
+    padding:12px 30px;
+    font-size:18px;
+    border:none;
+    border-radius:10px;
+    margin:12px;
+    cursor:pointer;
+  }
+  #yes{ background:#34c759; color:white; position:absolute; }
+  #no{ background:#ff3b30; color:white; }
+</style>
+</head>
+
+<body>
+
+<h1>SORRY HRIDHIKA.. nnod minduo plz?</h1>
+
+<button id="no">YES</button>
+<button id="yes">NO</button>
+
+<script>
+const yes = document.getElementById("yes");
+const no = document.getElementById("no");
+
+function moveYes(){
+  let x = Math.random() * (window.innerWidth - 120);
+  let y = Math.random() * (window.innerHeight - 180);
+  yes.style.left = x + "px";
+  yes.style.top = y + "px";
+}
+
+// Move when user tries to tap
+yes.addEventListener("touchstart", moveYes);
+yes.addEventListener("click", moveYes);
+
+no.onclick = () => alert("Thank you! ❤️");
+
+// initial position
+moveYes();
+</script>
+
+</body>
+</html>
