@@ -5,16 +5,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
   body{
-    margin:0;
     background:#fff6f6;
     overflow:hidden;
-    touch-action:none;
-    font-family: Arial, sans-serif;
+    margin:0;
   }
   .text{
     position:absolute;
-    font-weight:bold;
+    color:#ff2d55;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
     user-select:none;
+    animation: pop 0.2s;
+  }
+  @keyframes pop{
+    0%{
+        transform: scale(0%);
+    }
+    100%{
+        transform: scale(100%);
+    }
   }
 </style>
 </head>
@@ -22,26 +31,28 @@
 <body>
 
 <script>
-function spawnSorry(){
+function dropSorry(){
   const t = document.createElement("div");
   t.className = "text";
   t.innerText = "SORRY HRIDHIKA";
 
-  let size = Math.floor(Math.random()*45) + 14;
+  let size = Math.floor(Math.random()*40)+12; 
   t.style.fontSize = size + "px";
 
-  let x = Math.random() * (window.innerWidth - 150);
-  let y = Math.random() * (window.innerHeight - 80);
+  let x = Math.random() * (window.innerWidth - 200);
+  let y = Math.random() * (window.innerHeight - 50);
 
   t.style.left = x + "px";
   t.style.top = y + "px";
 
-  t.style.color = `hsl(${Math.random()*360},85%,50%)`;
+  // random cute color
+  t.style.color = `hsl(${Math.random()*360},80%,55%)`;
 
   document.body.appendChild(t);
 }
 
-setInterval(spawnSorry, 250);
+// keep spawning endlessly
+setInterval(dropSorry, 300);
 </script>
 
 </body>
