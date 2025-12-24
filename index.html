@@ -2,42 +2,48 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <title>Merry Christmas Hridhika</title>
 
 <style>
   body{
     margin:0;
     height:100vh;
-    background:linear-gradient(#021b2a,#07485f,#0aa3b6);
+    background:linear-gradient(#00111d,#015271,#0bc0d2);
     display:flex;
     align-items:center;
     justify-content:center;
     overflow:hidden;
     color:white;
-    font-family:"Poppins", Arial, sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
   }
 
   .card{
     text-align:center;
-    z-index:10;
+    padding:20px;
+    width:90%;
+    max-width:450px;
     animation: pop 1.5s ease;
   }
 
   h1{
-    font-size:3.5rem;
-    letter-spacing:2px;
+    font-size:8vw;
+    max-font-size:40px;
+    letter-spacing:1.5px;
+    margin-bottom:10px;
     animation: glow 2s infinite;
   }
 
   h2{
+    font-size:4.5vw;
     font-weight:400;
-    animation: fade 3s ease;
+    line-height:1.4;
+    animation: fade 2s ease;
   }
 
   @keyframes glow{
     0%{ text-shadow:0 0 5px white,0 0 20px gold;}
-    50%{ text-shadow:0 0 15px white,0 0 40px gold;}
+    50%{ text-shadow:0 0 10px white,0 0 35px gold;}
     100%{ text-shadow:0 0 5px white,0 0 20px gold;}
   }
 
@@ -47,11 +53,11 @@
   }
 
   @keyframes pop{
-    from{ transform:scale(0.5); opacity:0; }
+    from{ transform:scale(0.7); opacity:0; }
     to{ transform:scale(1); opacity:1; }
   }
 
-  /* Snowflakes */
+  /* Snow */
   .snow{
     position:fixed;
     top:0;
@@ -60,11 +66,12 @@
     height:100%;
     pointer-events:none;
   }
+
   .flake{
     position:absolute;
     top:-10px;
     color:white;
-    font-size:20px;
+    font-size:18px;
     animation: fall linear infinite;
   }
 
@@ -81,7 +88,7 @@
 
 <div class="card">
   <h1>Merry Christmas match stick</h1>
-  <h2>Hridhika orr cake vangi theruo plzz</h2>
+  <h2> Hridhika.... u owe me a cake</h2>
 </div>
 
 <div class="snow"></div>
@@ -96,14 +103,14 @@ function createSnow(){
   flake.style.left = Math.random()*100+"vw";
   flake.style.animationDuration = (Math.random()*3 + 2)+"s";
   flake.style.opacity = Math.random();
-  flake.style.fontSize = Math.random()*15 + 10 + "px";
+  flake.style.fontSize = Math.random()*10 + 12 + "px";
 
   snow.appendChild(flake);
 
   setTimeout(()=>{ flake.remove(); },5000);
 }
 
-setInterval(createSnow,150);
+setInterval(createSnow,180);
 </script>
 
 </body>
