@@ -1,28 +1,77 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Sorry HRIDHIKA</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Merry Christmas Hridhika</title>
+
 <style>
   body{
-    background:#fff6f6;
-    overflow:hidden;
     margin:0;
+    height:100vh;
+    background:linear-gradient(#021b2a,#07485f,#0aa3b6);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    color:white;
+    font-family:"Poppins", Arial, sans-serif;
   }
-  .text{
-    position:absolute;
-    color:#ff2d55;
-    font-family: Arial, sans-serif;
-    font-weight: bold;
-    user-select:none;
-    animation: pop 0.2s;
+
+  .card{
+    text-align:center;
+    z-index:10;
+    animation: pop 1.5s ease;
   }
+
+  h1{
+    font-size:3.5rem;
+    letter-spacing:2px;
+    animation: glow 2s infinite;
+  }
+
+  h2{
+    font-weight:400;
+    animation: fade 3s ease;
+  }
+
+  @keyframes glow{
+    0%{ text-shadow:0 0 5px white,0 0 20px gold;}
+    50%{ text-shadow:0 0 15px white,0 0 40px gold;}
+    100%{ text-shadow:0 0 5px white,0 0 20px gold;}
+  }
+
+  @keyframes fade{
+    from{ opacity:0; transform:translateY(20px); }
+    to{ opacity:1; transform:translateY(0); }
+  }
+
   @keyframes pop{
-    0%{
-        transform: scale(0%);
-    }
-    100%{
-        transform: scale(100%);
+    from{ transform:scale(0.5); opacity:0; }
+    to{ transform:scale(1); opacity:1; }
+  }
+
+  /* Snowflakes */
+  .snow{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+  }
+  .flake{
+    position:absolute;
+    top:-10px;
+    color:white;
+    font-size:20px;
+    animation: fall linear infinite;
+  }
+
+  @keyframes fall{
+    to{
+      transform:translateY(110vh);
+      opacity:0.7;
     }
   }
 </style>
@@ -30,29 +79,31 @@
 
 <body>
 
+<div class="card">
+  <h1>Merry Christmas match stick</h1>
+  <h2>Hridhika orr cake vangi theruo plzz</h2>
+</div>
+
+<div class="snow"></div>
+
 <script>
-function dropSorry(){
-  const t = document.createElement("div");
-  t.className = "text";
-  t.innerText = "SORRY HRIDHIKA";
+function createSnow(){
+  const snow = document.querySelector(".snow");
+  const flake = document.createElement("div");
+  flake.className="flake";
+  flake.innerHTML="❄";
 
-  let size = Math.floor(Math.random()*40)+12; 
-  t.style.fontSize = size + "px";
+  flake.style.left = Math.random()*100+"vw";
+  flake.style.animationDuration = (Math.random()*3 + 2)+"s";
+  flake.style.opacity = Math.random();
+  flake.style.fontSize = Math.random()*15 + 10 + "px";
 
-  let x = Math.random() * (window.innerWidth - 200);
-  let y = Math.random() * (window.innerHeight - 50);
+  snow.appendChild(flake);
 
-  t.style.left = x + "px";
-  t.style.top = y + "px";
-
-  // random cute color
-  t.style.color = `hsl(${Math.random()*360},80%,55%)`;
-
-  document.body.appendChild(t);
+  setTimeout(()=>{ flake.remove(); },5000);
 }
 
-// keep spawning endlessly
-setInterval(dropSorry, 300);
+setInterval(createSnow,150);
 </script>
 
 </body>
